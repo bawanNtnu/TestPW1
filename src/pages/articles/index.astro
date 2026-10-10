@@ -1,7 +1,7 @@
 ---
 import SiteLayout from '../../layouts/SiteLayout.astro';
-import {getCollection} from 'astro:content';
-const entries=(await getCollection('articles',({data})=>!data.draft)).sort((a,b)=>a.data.order-b.data.order);
+import {getPublicArticles} from '../../lib/articles';
+const entries=(await getPublicArticles()).sort((a,b)=>a.data.order-b.data.order);
 const base=import.meta.env.BASE_URL;
 ---
 <SiteLayout title="全部文章" description="三篇相連的城市觀察筆記：縮小範圍、分開判斷、帶著問題回訪。"><section class="page-intro narrow"><p class="eyebrow">FIELD LEDGER / VOL. 01</p><h1>先看清楚，<br/>再慢慢理解。</h1><p class="deck">本期三篇文章共同完成一個練習。可以依序閱讀，也可以從你現在最需要的方法開始。</p></section><section class="archive narrow" aria-label="文章列表"><form class="archive-filter" role="search"><label for="filter">找一篇筆記</label><div><input id="filter" type="search" placeholder="搜尋標題、摘要或主題"/><button type="reset">清除</button></div><p id="filter-count" role="status" aria-live="polite">共 3 篇文章</p><small>此處篩選本頁標題、摘要與主題，不是全文搜尋。</small></form><ol class="archive-list">{entries.map(e=><li data-entry data-search={[e.data.title,e.data.description,...e.data.tags].join(' ')}><span class="entry-no">0{e.data.order}</span><div><p class="eyebrow">{e.data.tags.join(' / ')} · 測試內容 2026.10.10</p><h2><a href={base+'articles/'+e.id+'/'}>{e.data.title}</a></h2><p>{e.data.description}</p><p class="exercise">小練習：{e.data.exercise}</p></div><a class="read-link" href={base+'articles/'+e.id+'/'} aria-label={'閱讀：'+e.data.title}>閱讀 ↗</a></li>)}</ol><p id="no-results" hidden>沒有符合的筆記。請換一個關鍵字，或清除搜尋。</p></section></SiteLayout>

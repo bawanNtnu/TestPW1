@@ -1,0 +1,25 @@
+---
+import config from '../../site.config.json';
+const base=import.meta.env.BASE_URL;
+const links=config.navigation.filter(x=>x.enabled).map(x=>({label:x.label,href:base+x.id+'/'}));
+const active=(href:string)=>Astro.url.pathname.startsWith(href);
+---
+<div class="site-navigation" data-navigation>
+  <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-navigation" data-nav-toggle>開啟選單</button>
+  <nav id="primary-navigation" aria-label="主要導覽">{links.map(x=><a aria-current={active(x.href)?'page':undefined} href={x.href}>{x.label}</a>)}</nav>
+</div>
+<script>
+const host=document.querySelector<HTMLElement>('[data-navigation]');
+const toggle=host?.querySelector<HTMLButtonElement>('[data-nav-toggle]');
+const menu=host?.querySelector<HTMLElement>('nav');
+if(host&&toggle&&menu){
+  // Progressive enhancement: without JS the complete nav stays visible.
+  host.classList.add('nav-enhanced');
+  const setOpen=(open:boolean)=>{toggle.setAttribute('aria-expanded',String(open));toggle.textContent=open?'關閉選單':'開啟選單';host.dataset.open=String(open);};
+  setOpen(false);
+  toggle.addEventListener('click',()=>setOpen(toggle.getAttribute('aria-expanded')!=='true'));
+  host.addEventListener('keydown',e=>{if(e.key==='Escape'&&toggle.getAttribute('aria-expanded')==='true'){setOpen(false);toggle.focus();}});
+  menu.addEventListener('click',e=>{if((e.target as HTMLElement).closest('a'))setOpen(false);});
+  matchMedia('(max-width:700px)').addEventListener('change',()=>setOpen(false));
+}
+</script>

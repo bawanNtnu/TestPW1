@@ -1,0 +1,5 @@
+---
+interface Props {fields:{label:string;prompt:string}[];title?:string;note?:string}
+const {fields,title='讓空白有一個開始。',note='完成後不用提交給本站；筆記留在你自己的紙本或裝置就好。'}=Astro.props;
+---
+<section class="practice-template narrow"><p class="eyebrow">可直接照著寫 / 筆記欄位</p><h2>{title}</h2><dl>{fields.map(f=><div><dt>{f.label}</dt><dd>{f.prompt}</dd></div>)}</dl><p>{note}</p></section>

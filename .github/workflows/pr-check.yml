@@ -12,8 +12,11 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: "22"
-      - run: npm install --no-audit --no-fund
+      - run: npm ci --no-audit --no-fund
       - run: npm run build
+        env:
+          SITE_URL: https://feature-pr45-maintenance-qa.bufu-workshop-qa.pages.dev
+      - run: node scripts/verify-maintenance.mjs
       - uses: actions/upload-artifact@v4
         with:
           name: student-pr-build

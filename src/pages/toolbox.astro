@@ -1,0 +1,20 @@
+---
+import SiteLayout from '../layouts/SiteLayout.astro';
+import PracticeTemplate from '../components/PracticeTemplate.astro';
+import FieldLedger from '../components/FieldLedger.astro';
+import {getPublicArticles} from '../lib/articles';
+const base=import.meta.env.BASE_URL;
+const entries=await getPublicArticles();
+const fields=[{label:'時間與位置',prompt:'寫日期、時段、天氣與你站的位置。只需要一般範圍，不記住址或個人位置。'},{label:'我確實看見',prompt:'記動作與順序：誰往哪個方向移動？在哪裡停下？先不替別人補上原因。'},{label:'我暫時推測',prompt:'有哪些可能的解釋？至少留下一個不同的可能，避免第一個想法變成唯一答案。'},{label:'下次想確認',prompt:'選一個能在安全條件下回看的問題，例如同一個停點在不同時段是否一樣。'},{label:'這次的限制',prompt:'看了多久、視線受到什麼遮擋、沒有看到哪些時段？不足的部分也值得留下。'}];
+---
+<SiteLayout title="城市散步工具箱" description="不用購買設備的城市觀察工具箱：安全準備、三種記錄工具、五個提問與十分鐘練習。">
+<section class="page-intro narrow"><p class="eyebrow">TOOLBOX / 出門前的一頁備忘</p><h1>帶走一個問題，<br/>不用帶齊一套裝備。</h1><p class="deck">工具箱不是購物清單。它幫你在一段短路上，選擇安全停點、留下可回看的文字，再決定下次想問什麼。</p><a class="text-link" href="#practice">直接看十分鐘練習 ↗</a></section>
+<div class="toolbox-layout narrow"><aside class="article-toc"><nav aria-label="工具箱索引"><a href="#prepare">先確認能安全停留</a><a href="#tools">選一種記錄工具</a><a href="#questions">帶走五個觀察問題</a><a href="#practice">十分鐘練習</a></nav><p class="toc-note">這是虛構品牌的 QA 教材，不是實地調查或路線推薦。</p></aside><div class="prose">
+<h2 id="prepare">先確認能安全停留</h2><p>挑你熟悉、容易離開的一小段路。避開車道、出入口與忙碌的動線；若沒有不妨礙人的停點，可以只在等候時看一分鐘，或改天再試。天氣、體力與心情都會影響練習，取消不用補做。</p><p>不必拍攝陌生人的臉、不錄私人談話、不記可辨識的車牌。觀察位置與移動方式，已足夠支持這次筆記。不要為了看清楚而跟著某個人走，也不要把他人的困境當成展示素材。</p>
+<h2 id="tools">只選一種你用得順手的工具</h2><dl class="tool-list"><div><dt>紙與筆</dt><dd>適合想暫時離開螢幕的人。先畫三欄：看見、推測、想再問。站著不方便寫，就記兩個詞，回到安全位置再補完整。</dd></div><div><dt>手機離線備忘錄</dt><dd>適合短時間記錄。用日期作標題，保留原始句子，再另寫修正版。文字存在你自己的裝置即可，本站不接收或同步筆記。</dd></div><div><dt>簡單示意圖</dt><dd>適合比較路口與轉角。用線畫移動方向，用圈標停留位置；這是你的觀察範圍，不是精準地圖，不需要量距離或替空間下結論。</dd></div></dl>
+<h2 id="questions">帶走五個問題，不急著全部回答</h2><ol><li>人們在哪裡慢下來？先記位置與動作，不先推測理由。</li><li>誰可以停留，誰正在繞行？這次沒看見，不代表平常不存在。</li><li>聲音改變之前，發生了什麼？試著記下順序。</li><li>我的視線漏掉了哪裡？遮擋、角度與時間都是限制。</li><li>如果明天再來，最想比較哪一項條件？只選一件事就好。</li></ol>
+<h2 id="practice">十分鐘，完成一筆能回看的紀錄</h2><p><strong>前兩分鐘：</strong>確認位置安全，寫下時間與範圍。<strong>接著三分鐘：</strong>只看一項移動或停留，記兩三個具體動作。<strong>再三分鐘：</strong>把文字拆成看見與推測。<strong>最後兩分鐘：</strong>寫一個下次問題與這次的限制。</p><p>不方便連續留十分鐘時，可以拆成幾次短記錄。重點是保留條件，不是追求完成速度。若描述只有「很熱鬧」，試著改成「三分鐘內，兩次有人在轉角停下來確認方向」。後一句仍然有限，但比較容易回看。</p><a class="text-link" href={base+'start-here/'}>回到三次練習的閱讀順序 ↗</a>
+</div></div>
+<PracticeTemplate fields={fields} title="把今天的觀察，留在自己的筆記裡。"/>
+<div class="ledger-wrap"><FieldLedger label="RELATED READING / 工具背後的方法" title="不知道怎麼記時，回到方法。" more="查看全部文章" href={base+'articles/'} items={entries.map(e=>({d:`0${e.data.order}`,t:e.data.title,sub:e.data.description,type:e.data.tags[0],href:base+'articles/'+e.id+'/'}))}/></div>
+</SiteLayout>
