@@ -13,5 +13,5 @@ for(const d of drafts){assert(!text.includes(d.title),path+' draft title');asser
 for(const m of text.matchAll(/(?:href|src)="(\/[^"#?]*)(?:[?#][^"]*)?"/g)){const p=m[1];if(p.endsWith('/'))assert(existsSync(join(root,p,'index.html')),path+' broken '+p);else assert(existsSync(join(root,p)),path+' missing '+p);}
 pages.push(relative(root,path));}
 for(const d of drafts){assert(!existsSync(join(root,'articles',d.slug,'index.html')),'draft URL emitted');assert(!xml.includes(d.slug));assert(!rss.includes(d.slug));}
-assert(xml.includes('/toolbox/'),'toolbox sitemap');assert(existsSync(join(root,'toolbox/index.html')));
+assert(xml.includes('/toolbox/'),'toolbox sitemap');assert(xml.includes('/review-notes/'),'review-notes sitemap');assert(existsSync(join(root,'toolbox/index.html')));
 console.log(JSON.stringify({pages,nav:expected,drafts:drafts.map(x=>x.slug),assertions:'passed'},null,2));

@@ -37,6 +37,11 @@
       "enabled": true
     },
     {
+      "id": "review-notes",
+      "label": "筆記回看",
+      "enabled": true
+    },
+    {
       "id": "about",
       "label": "關於步幅",
       "enabled": true
