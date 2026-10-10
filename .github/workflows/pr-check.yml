@@ -15,9 +15,15 @@ jobs:
       - run: npm ci --no-audit --no-fund
       - run: npm run build
         env:
-          SITE_URL: https://feature-pr45-maintenance-qa.bufu-workshop-qa.pages.dev
+          SITE_URL: https://feature-pr45-e2e-a669.bufu-workshop-qa.pages.dev
       - run: node scripts/verify-maintenance.mjs
+      - run: node qa/pr45/verify-output-with-drafts.mjs --student-site .
+      - run: npm ci --prefix qa/pr45 --no-audit --no-fund
+      - run: npx --prefix qa/pr45 playwright install --with-deps chromium
+      - run: node qa/pr45/test-navigation.mjs qa/pr45/verify-student-navigation.mjs qa-artifacts/pr45-faults
       - uses: actions/upload-artifact@v4
         with:
           name: student-pr-build
-          path: dist
+          path: |
+            dist
+            qa-artifacts

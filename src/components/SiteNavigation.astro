@@ -20,6 +20,6 @@ if(host&&toggle&&menu){
   toggle.addEventListener('click',()=>setOpen(toggle.getAttribute('aria-expanded')!=='true'));
   host.addEventListener('keydown',e=>{if(e.key==='Escape'&&toggle.getAttribute('aria-expanded')==='true'){setOpen(false);toggle.focus();}});
   menu.addEventListener('click',e=>{if((e.target as HTMLElement).closest('a'))setOpen(false);});
-  matchMedia('(max-width:700px)').addEventListener('change',()=>setOpen(false));
+  matchMedia('(max-width:850px)').addEventListener('change',()=>setOpen(false));
 }
 </script>
