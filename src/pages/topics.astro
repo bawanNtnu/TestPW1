@@ -1,0 +1,7 @@
+---
+import SiteLayout from '../layouts/SiteLayout.astro';
+import {getCollection} from 'astro:content';
+const entries=(await getCollection('articles')).sort((a,b)=>a.data.order-b.data.order);
+const topics=[{name:'觀察',detail:'把視線放在一個有邊界的小範圍。'},{name:'記錄',detail:'讓事實、感受與推測各自有位置。'},{name:'回訪',detail:'替第一次的印象留下可以改口的機會。'},{name:'日常動線',detail:'從路口到回訪，看移動與停留如何改變。'},{name:'判斷界線',detail:'留意我們知道什麼，也說明不知道什麼。'}];
+---
+<SiteLayout title="主題索引" description="從觀察、記錄、回訪、日常動線與判斷界線探索相連文章。"><section class="page-intro narrow"><p class="eyebrow">TOPIC INDEX / 同一問題，不同入口</p><h1>沿著一個主題，<br/>再走一次。</h1><p class="deck">文章不只依序閱讀，也能從主題交叉回看。「日常動線」連結觀察與回訪，提醒我們同一段路不是固定不變的。</p></section><section class="topic-index narrow">{topics.map((t,i)=><section><div><p class="eyebrow">TOPIC / 0{i+1}</p><h2>{t.name}</h2><p>{t.detail}</p></div><ul>{entries.filter(e=>e.data.tags.includes(t.name)).map(e=><li><a href={'/articles/'+e.id+'/'}>{e.data.title} ↗</a></li>)}</ul></section>)}</section></SiteLayout>
