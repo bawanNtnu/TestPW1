@@ -9,3 +9,12 @@
 /* Keep the skip link in keyboard order while visually hidden. */
 .skip{visibility:visible;opacity:0;pointer-events:none}
 .skip:focus{opacity:1;pointer-events:auto}
+/* Maintenance: one shared nav, same ordered links at every viewport. */
+.site-navigation{min-width:0}.nav-toggle{display:none;min-width:44px;min-height:44px;border:1px solid var(--line);background:var(--bg);color:var(--ink);padding:8px 16px}
+.site-header .site-navigation nav{gap:16px}.site-header .site-navigation nav a{font-size:14px}
+.toolbox-layout{display:grid;grid-template-columns:230px minmax(0,700px);gap:60px;padding-bottom:48px;align-items:start}
+.tool-list{margin:24px 0 48px}.tool-list>div{border-top:1px solid var(--line);padding:24px 0;display:grid;grid-template-columns:180px 1fr;gap:24px}.tool-list dt{font-weight:600}.tool-list dd{margin:0}
+/* Local edit: numbered practice sequence now follows one reading column. */
+.start-flow-maintained{grid-template-columns:1fr;gap:32px}.start-flow-maintained .start-note{display:grid;grid-template-columns:.8fr 1.2fr;gap:24px;border-bottom:1px solid var(--line);padding-bottom:24px}.start-flow-maintained .start-note h2{grid-row:1/3}.start-flow-maintained .start-note p{margin:0}.start-flow-maintained ol{display:grid;gap:0}.start-flow-maintained li{grid-template-columns:60px minmax(0,1fr);gap:24px;padding:24px 0;margin:0}.start-flow-maintained li p{max-width:700px}
+@media(max-width:1000px){.toolbox-layout{grid-template-columns:190px minmax(0,1fr);gap:36px}}
+@media(max-width:700px){.site-header{flex-direction:row;align-items:center;flex-wrap:wrap}.site-navigation{width:100%}.nav-enhanced .nav-toggle{display:block;margin-left:auto}.nav-enhanced nav{display:none!important}.nav-enhanced[data-open="true"] nav{display:flex!important}.site-header .site-navigation nav{flex-direction:column;gap:0;margin-top:16px;border-top:1px solid var(--line)}.site-header .site-navigation nav a{justify-content:flex-start;padding:8px 0;min-height:48px;border-bottom:1px solid var(--line)}.toolbox-layout{grid-template-columns:1fr;gap:28px}.tool-list>div{grid-template-columns:1fr;gap:8px}.start-flow-maintained .start-note{grid-template-columns:1fr;gap:16px}.start-flow-maintained .start-note h2{grid-row:auto}.start-flow-maintained li{grid-template-columns:32px minmax(0,1fr);gap:16px}}

@@ -1,4 +1,4 @@
-import {getCollection} from 'astro:content';
+import {getPublicArticles} from '../lib/articles';
 import config from '../../site.config.json';
 const esc=(value)=>String(value??'').replace(/&/g,'&amp;').replace(/</g,'&lt;');
 export async function GET({site}) {
@@ -6,7 +6,7 @@ export async function GET({site}) {
  const base=import.meta.env.BASE_URL;
  const paths=['',...config.navigation.map(x=>x.id+'/')];
  if(config.navigation.some(x=>x.id==='articles')) {
-  const entries=await getCollection('articles',({data})=>!data.draft);
+  const entries=await getPublicArticles();
   for(const x of entries)paths.push('articles/'+x.id+'/');
  }
  const urls=[...new Set(paths)].map(path=>'<url><loc>'+esc(new URL(base+path,origin).href)+'</loc></url>').join('');

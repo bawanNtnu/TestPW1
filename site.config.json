@@ -32,8 +32,13 @@
       "enabled": true
     },
     {
+      "id": "toolbox",
+      "label": "城市散步工具箱",
+      "enabled": true
+    },
+    {
       "id": "about",
-      "label": "關於我",
+      "label": "關於步幅",
       "enabled": true
     }
   ],
