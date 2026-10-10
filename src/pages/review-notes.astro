@@ -11,11 +11,11 @@ const fields=[{label:'原始句子',prompt:'先保留你當時寫下的字，不
 <section class="page-intro narrow"><p class="eyebrow">REVIEW / 留下修正的空間</p><h1>回看一筆紀錄，<br/>不用替它補成答案。</h1><p class="deck">散步結束後，筆記可能只剩幾個詞。這頁提供一條回看順序，幫你把意思說清楚，同時保留當時不知道的事。</p><a class="text-link" href="#review-fields">直接看修訂欄位 ↗</a></section>
 <div class="toolbox-layout narrow"><aside class="article-toc"><nav aria-label="回看頁索引"><a href="#keep">先保留原句</a><a href="#separate">拆開兩種文字</a><a href="#scope">檢查觀察範圍</a><a href="#next">留下下次問題</a><a href="#review-fields">修訂欄位</a></nav><p class="toc-note">公開 QA 教材。範例是虛構情境，不是居民訪談或實地調查。</p></aside><article class="prose">
 <h2 id="keep">先保留原句，不用急著寫漂亮</h2><p>把原始筆記放在上方，再另寫修訂版。不要讓更流暢的文字蓋掉你當時確實看見的事。若只有「轉角很擠」，先問自己記得哪個位置、哪個時段，想不起來就寫「當時沒有記下」，而不是事後補一個精確數字。</p><p>回看的目的不是交出一篇文章。你可以只改一個句子，也可以發現這筆紀錄暫時無法使用。留下不足的資訊，會讓下次觀察更有方向。</p>
-<h2 id="separate">把事實與推測放在不同位置</h2><p>事實描述動作與條件，推測提出可能原因。兩者都值得保留，但不要用同一種語氣呈現。問「我能指出哪個動作支持這句话？」若沒有具體動作，把它移到問題欄即可。</p>
+<h2 id="separate">把事實與推測放在不同位置</h2><p>事實描述動作與條件，推測提出可能原因。兩者都值得保留，但不要用同一種語氣呈現。問「我能指出哪個動作支持這句話？」若沒有具體動作，把它移到問題欄即可。</p>
 <section class="review-example" aria-label="修訂示例"><h3>從一句感受開始</h3><p><strong>原句：</strong>大家都不喜歡這個路口。</p><p><strong>可確認：</strong>我站在騎樓旁兩分鐘，看見兩次有人接近轉角後停下來，再往外側走。</p><p><strong>仍未知：</strong>不知道他們為何改變方向，也不知道其他時段是否如此。這不能代表所有人的想法。</p></section>
 <h2 id="scope">用四個條件檢查範圍</h2><ol class="review-sequence"><li><strong>時間：</strong>是等候時的一分鐘，還是連續看了一段時間？沒有測量就不要改寫成統計。</li><li><strong>位置：</strong>你看得到哪一側？柱子、車輛與視角會讓某些動作消失。</li><li><strong>條件：</strong>雨天、施工或尖峰時段都可能影響動線，不能把差異只歸因於某一件事。</li><li><strong>界線：</strong>不補姓名、不辨識個人、不記私人談話。回看位置與行為，已足夠支持練習。</li></ol>
 <h2 id="next">下一次只帶一個能比較的問題</h2><p>選一項條件即可：例如同一個轉角在午休與傍晚，停留的位置是否不同。問題應能在安全、不妨礙通行的情況下觀察；如果沒有停點，取消練習，不為了補足筆記勉強自己。</p><p>也可以先不回訪。把修訂日期、改動理由和保留的限制寫下來，這筆紀錄就已經比第一次更容易理解。</p><a class="text-link" href={base+'toolbox/'}>回到出門前的工具箱 ↗</a>
 </article></div>
-<PracticeTemplate id="review-fields" fields={fields} title="把回看过程，留在自己的筆記裡。"/>
+<PracticeTemplate id="review-fields" fields={fields} title="把回看過程，留在自己的筆記裡。"/>
 <div class="ledger-wrap"><FieldLedger label="RELATED / 回到方法" title="先記錄，再讓理解變動。" more="查看全部文章" href={base+'articles/'} items={articles.map(a=>({d:`0${a.data.order}`,t:a.data.title,sub:a.data.description,type:a.data.tags[0],href:base+'articles/'+a.id+'/'}))}/></div>
 </SiteLayout>
