@@ -1,0 +1,12 @@
+{
+  "entryURLs": [
+    "https://personal-site-starter.pages.dev/",
+    "https://personal-site-starter.pages.dev/guide/"
+  ],
+  "zipBytes": 1990218,
+  "zipSHA256": "ec23eb7628b4be5e426c200114934e1f01659de99f9ae8f821146a5407e8c176",
+  "source": "Website download button; no teacher repository accessed",
+  "generator": "scripts/export-starter.mjs",
+  "layout": "src/pages/layouts/field-notes/index.astro",
+  "recipe": "L01-ledger-rows.astro"
+}

@@ -1,0 +1,58 @@
+{
+  "version": 1,
+  "kind": "knowledge",
+  "layoutSlug": "field-notes",
+  "visualTheme": "paper",
+  "brand": {
+    "name": "步幅｜城市慢行筆記",
+    "primaryColor": "#9A3B2E",
+    "tagline": "從一段短路開始，重新看見每天經過的城市。",
+    "palette": {
+      "primary": "#9A3B2E",
+      "secondary": "#806A54",
+      "accent": "#C58D63",
+      "background": "#F8F5EF",
+      "text": "#28231F"
+    }
+  },
+  "navigation": [
+    {
+      "id": "articles",
+      "label": "文章",
+      "enabled": true
+    },
+    {
+      "id": "topics",
+      "label": "主題",
+      "enabled": true
+    },
+    {
+      "id": "start-here",
+      "label": "開始閱讀",
+      "enabled": true
+    },
+    {
+      "id": "about",
+      "label": "關於我",
+      "enabled": true
+    }
+  ],
+  "primaryCta": {
+    "label": "閱讀文章",
+    "pageId": "articles"
+  },
+  "sectionPatterns": [
+    {
+      "patternId": "featured-work",
+      "targetPage": "/",
+      "insertAfter": "主要內容之後"
+    },
+    {
+      "patternId": "footer-minimal",
+      "targetPage": "site-wide",
+      "insertAfter": "每頁主要內容之後"
+    }
+  ],
+  "site": "https://feature-bufu-field-notes.bufu-workshop-qa.pages.dev",
+  "base": "/"
+}

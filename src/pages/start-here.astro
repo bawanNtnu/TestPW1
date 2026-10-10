@@ -1,0 +1,6 @@
+---
+import SiteLayout from '../layouts/SiteLayout.astro';
+import {getCollection} from 'astro:content';
+const entries=(await getCollection('articles')).sort((a,b)=>a.data.order-b.data.order);
+---
+<SiteLayout title="開始閱讀" description="用十分鐘完成一次有界線的觀察：找安全停點、寫三欄筆記、安排下次回訪。"><section class="page-intro narrow"><p class="eyebrow">START HERE / 不用先準備好全部</p><h1>十分鐘，<br/>留下一筆小紀錄。</h1><p class="deck">一張紙、一支筆、一個不妨礙通行的位置，就能開始。這不是打卡挑戰，也沒有需要完成的進度排名。</p></section><section class="start-flow narrow"><div class="start-note"><h2>先照顧自己，<br/>再開始觀察。</h2><p>不站在車道、不擋住行人、不追拍陌生人。若沒有安全停點，就換個地方或改天再試。</p><p class="fine">不需要拍照，不需要紀錄私人談話或可辨識資訊。</p></div><ol>{entries.map(e=><li><span class="entry-no">0{e.data.order}</span><div><h2>{e.data.step}</h2><p>{e.data.exercise}</p><a class="text-link" href={'/articles/'+e.id+'/'}>閱讀完整方法 ↗</a></div></li>)}</ol></section><section class="practice-template narrow"><p class="eyebrow">可直接照著寫 / 筆記欄位</p><h2>讓空白有一個開始。</h2><dl><div><dt>時間與範圍</dt><dd>今天幾點？看的是哪一小段？你站在哪裡？</dd></div><div><dt>我看見</dt><dd>寫下動作、位置、聲音與順序，先不替人補上原因。</dd></div><div><dt>我推測</dt><dd>有哪些可能的解釋？還有沒有另一種可能？</dd></div><div><dt>我想再問</dt><dd>下次回訪，最值得確認的一件事是什麼？</dd></div><div><dt>這次的限制</dt><dd>只有三分鐘、只看一側、沒有雨天紀錄？照實寫下來。</dd></div></dl><p>完成後不用提交給本站；筆記留在你自己的紙本或裝置就好。</p></section></SiteLayout>

@@ -1,0 +1,62 @@
+{
+  "version": 1,
+  "kind": "knowledge",
+  "layoutSlug": "field-notes",
+  "visualTheme": "paper",
+  "brand": {
+    "name": "步幅｜城市慢行筆記",
+    "primaryColor": "#9A3B2E",
+    "tagline": "從一段短路開始，重新看見每天經過的城市。",
+    "palette": {
+      "primary": "#9A3B2E",
+      "secondary": "#806A54",
+      "accent": "#C58D63",
+      "background": "#F8F5EF",
+      "text": "#28231F"
+    }
+  },
+  "navigation": [
+    {
+      "id": "articles",
+      "label": "文章",
+      "enabled": true
+    },
+    {
+      "id": "topics",
+      "label": "主題",
+      "enabled": true
+    },
+    {
+      "id": "start-here",
+      "label": "開始閱讀",
+      "enabled": true
+    },
+    {
+      "id": "about",
+      "label": "關於我",
+      "enabled": true
+    },
+    {
+      "id": "resources",
+      "label": "資源",
+      "enabled": false
+    }
+  ],
+  "sectionPatterns": [
+    {
+      "patternId": "featured-work",
+      "targetPage": "/",
+      "insertAfter": "主要內容之後"
+    },
+    {
+      "patternId": "footer-minimal",
+      "targetPage": "site-wide",
+      "insertAfter": "每頁主要內容之後"
+    }
+  ],
+  "primaryCta": {
+    "label": "閱讀文章",
+    "pageId": "articles"
+  },
+  "notes": "公開 QA 測試作品、虛構編輯品牌。對象為想在通勤與午休練習觀察的城市生活者。以田野筆記的邊注、編號索引、觀察紀錄為核心，創作三篇相連長文：觀察、記錄、回訪。首頁依閱讀路線編排；不提供假訂閱或真實服務。需要關於、文章、主題、開始閱讀頁與測試聲明。"
+}
